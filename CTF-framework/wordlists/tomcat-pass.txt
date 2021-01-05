@@ -1,0 +1,12 @@
+password
+Password1
+password1
+admin
+tomcat
+manager
+role1
+changethis
+r00t
+root
+toor
+s3cret

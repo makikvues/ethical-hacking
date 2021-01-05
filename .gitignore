@@ -1,0 +1,11 @@
+CTF-framework/aliases/private.sh
+CTF-framework/keys/htb-key
+CTF-framework/keys/htb-key.pub
+CTF-framework/www/win/winPEAS.bat
+CTF-framework/www/win/winPEAS.exe
+CTF-framework/www/win/Sherlock.ps1
+CTF-framework/www/win/jaws-enum.ps1
+CTF-framework/www/lin/linpeas.sh
+CTF-framework/www/lin/LinEnum.sh
+CTF-framework/www/lin/les2.pl
+CTF-framework/www/lin/les.sh
