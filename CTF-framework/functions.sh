@@ -167,7 +167,7 @@ function gobuster_dir
 function get_ip_address
 {
     declare devices_base="/sys/class/net"     
-    declare devices=("tun0" "eth0")
+    declare devices=("tun0" "eth0" "eth1")
 
     for device in "${devices[@]}"
     do
