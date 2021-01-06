@@ -34,5 +34,6 @@ export -a ctf_framework_third_party_tools=(
     "Priviledge-escalation-awesome-scripts-suite"
     "pwncat"
     "pwntools"
+    "reGeorg"
     "windows-kernel-exploits"        
 )

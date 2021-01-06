@@ -82,6 +82,7 @@ ln -s "/opt/Priviledge-escalation-awesome-scripts-suite/linPEAS/linpeas.sh" "${c
 ln -s "/opt/LinEnum/LinEnum.sh" "${ctf_framework_path}/www/lin/LinEnum.sh" 
 ln -s "/opt/linux-exploit-suggester/linux-exploit-suggester.sh" "${ctf_framework_path}/www/lin/les.sh"
 ln -s "/opt/linux-exploit-suggester-2/linux-exploit-suggester-2.pl" "${ctf_framework_path}/www/lin/les2.pl"
+ln -s "/opt/reGeorg/tunnel.php" "${ctf_framework_path}/www/lin/tunnel.php"
 
 
 # windows
@@ -89,15 +90,18 @@ ln -s "/opt/Priviledge-escalation-awesome-scripts-suite/winPEAS/winPEASbat/winPE
 ln -s "/opt/Priviledge-escalation-awesome-scripts-suite/winPEAS/winPEASexe/winPEAS/bin/x64/Release/winPEAS.exe" "${ctf_framework_path}/www/win/winPEAS.exe"
 ln -s "/opt/Sherlock/Sherlock.ps1" "${ctf_framework_path}/www/win/Sherlock.ps1"
 ln -s "/opt/jaws/jaws-enum.ps1" "${ctf_framework_path}/www/win/jaws-enum.ps1"
+ln -s "/opt/reGeorg/tunnel.aspx" "${ctf_framework_path}/www/win/tunnel.aspx"
+ln -s "/opt/reGeorg/tunnel.php" "${ctf_framework_path}/www/win/tunnel.php"
 
 # reload .bashrc
 echo "Loading the CTF-Framework scripts..."
 source "${ctf_framework_path}/init.sh"
 echo "OK"
-# update your config values in ".secrets"
+# update your config values in "secrets"
 
 echo_yellow "---------------------------------------------------------------"
-echo_yellow "[!!!] update config values in .secrets file manually [!!!]"
+echo_yellow "[!!!] update config values in 'secrets' file manually [!!!]"
 echo_yellow "---------------------------------------------------------------"
 echo
 echo
+cp "${ctf_framework_path}/secrets-example" "${ctf_framework_path}/secrets"

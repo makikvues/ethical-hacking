@@ -135,17 +135,20 @@ __powerline() {
 
     ip_addr()
     {
-        # get the ip addr
-        address="$(ifconfig tun0 2>/dev/null)"
-        iface="tun0"
+        local devices_base="/sys/class/net"     
+        local devices=("tun0" "eth0" "eth1")
 
-        if [ -z "${address}" ];
-        then
-            address="$(ifconfig eth0)"
-            iface="eth0"
-        fi
+        for device in "${devices[@]}"
+        do
+            if [ -d "${devices_base}/${device}" ];
+            then
+                # set the ip_addr global
+                address="$(ifconfig ${device} | grep 'inet ' | awk {'print $2'})"
+                iface="${device}"
 
-        address=`echo "${address}" | grep "inet " | awk -F ' ' '{print $2}'`
+                break;
+            fi
+        done
 
         echo "${address} [${iface}]"
     }

@@ -10,3 +10,5 @@ It's recommended to use it with Kali linux / other similar pentest distribution.
 ## Bash Color Prompts
 
 Bash script which sets color prompt, based on https://github.com/z4ziggy/bash-powerline-ng with some modifications.
+
+![color prompt](bash-color-prompts/screenshot.png "Color prompt")

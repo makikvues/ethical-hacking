@@ -65,6 +65,8 @@ alias snmpe="snmp_enum"
 # TTY upgrade - get tab/autocomplete
 alias ttyu="tty_upgrade"
 
+alias tcpdi="sudo tcpdump -i tun0 icmp"
+
 # update the tools
 alias upd='update'
 
