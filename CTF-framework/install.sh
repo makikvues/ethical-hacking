@@ -59,7 +59,7 @@ ssh-keygen -f keys/htb-key
 
 # getting tools to opt
 echo "downloading tools to /opt"
-git clone https://github.com/BloodHoundAD/BloodHound.git "/opt/Bloodhound"
+git clone https://github.com/BloodHoundAD/BloodHound.git "/opt/BloodHound"
 git clone https://github.com/pentestmonkey/finger-user-enum.git "/opt/finger-user-enum"
 git clone https://github.com/michenriksen/aquatone.git "/opt/aquatone"
 git clone https://github.com/OJ/gobuster.git "/opt/gobuster"
@@ -68,7 +68,8 @@ git clone https://github.com/411Hall/JAWS.git "/opt/jaws"
 git clone https://github.com/irsdl/IIS-ShortName-Scanner.git "/opt/IIS-ShortName-Scanner"
 git clone https://github.com/rebootuser/LinEnum.git "/opt/LinEnum"
 git clone https://github.com/mzet-/linux-exploit-suggester.git "/opt/linux-exploit-suggester"
-git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite.git "/opt/Priviledge-escalation-awesome-scripts-suite"
+git clone https://github.com/jondonas/linux-exploit-suggester-2 "/opt/linux-exploit-suggester-2"
+git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite.git "/opt/privilege-escalation-awesome-scripts-suite"
 git clone https://github.com/DominicBreuker/pspy.git "/opt/pspy"
 git clone https://github.com/sensepost/reGeorg.git "/opt/reGeorg"
 git clone https://github.com/rasta-mouse/Watson.git "/opt/Watson"
@@ -78,7 +79,7 @@ git clone https://github.com/rasta-mouse/Sherlock.git "/opt/Sherlock/"
 # do symbolic links to tools needed
 echo "creating symbolic links to tools..."
 # linux
-ln -s "/opt/Priviledge-escalation-awesome-scripts-suite/linPEAS/linpeas.sh" "${ctf_framework_path}/www/lin/linpeas.sh"
+ln -s "/opt/privilege-escalation-awesome-scripts-suite/linPEAS/linpeas.sh" "${ctf_framework_path}/www/lin/linpeas.sh"
 ln -s "/opt/LinEnum/LinEnum.sh" "${ctf_framework_path}/www/lin/LinEnum.sh" 
 ln -s "/opt/linux-exploit-suggester/linux-exploit-suggester.sh" "${ctf_framework_path}/www/lin/les.sh"
 ln -s "/opt/linux-exploit-suggester-2/linux-exploit-suggester-2.pl" "${ctf_framework_path}/www/lin/les2.pl"
@@ -86,8 +87,8 @@ ln -s "/opt/reGeorg/tunnel.php" "${ctf_framework_path}/www/lin/tunnel.php"
 
 
 # windows
-ln -s "/opt/Priviledge-escalation-awesome-scripts-suite/winPEAS/winPEASbat/winPEAS.bat" "${ctf_framework_path}/www/win/winPEAS.bat" 
-ln -s "/opt/Priviledge-escalation-awesome-scripts-suite/winPEAS/winPEASexe/winPEAS/bin/x64/Release/winPEAS.exe" "${ctf_framework_path}/www/win/winPEAS.exe"
+ln -s "/opt/privilege-escalation-awesome-scripts-suite/winPEAS/winPEASbat/winPEAS.bat" "${ctf_framework_path}/www/win/winPEAS.bat" 
+ln -s "/opt/privilege-escalation-awesome-scripts-suite/winPEAS/winPEASexe/winPEAS/bin/x64/Release/winPEAS.exe" "${ctf_framework_path}/www/win/winPEAS.exe"
 ln -s "/opt/Sherlock/Sherlock.ps1" "${ctf_framework_path}/www/win/Sherlock.ps1"
 ln -s "/opt/jaws/jaws-enum.ps1" "${ctf_framework_path}/www/win/jaws-enum.ps1"
 ln -s "/opt/reGeorg/tunnel.aspx" "${ctf_framework_path}/www/win/tunnel.aspx"
